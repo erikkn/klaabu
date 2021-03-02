@@ -1,0 +1,10 @@
+/build
+/vendor
+.idea
+*.iml
+.terraform/
+.DS_Store
+*.plan
+*.tfvars
+*.tfstate
+*.code-workspace
