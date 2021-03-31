@@ -1,0 +1,36 @@
+name: Go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go env
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+
+    - name: Test & Build Klaabu for Linux
+      run: make GOOS=linux GOARCH=amd64 build
+      
+    - name: Test & Build Klaabu for MacOS
+      run: make GOOS=darwin GOARCH=amd64 build
+      
+    - name: Publish the Klaabu binary
+      uses: softprops/action-gh-release@v1
+      if: github.ref == 'refs/heads/master'
+      with:
+        files: |
+          klaabu-linux-amd64
+          klaabu-darwin-amd64
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
