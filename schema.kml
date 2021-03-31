@@ -1,0 +1,26 @@
+schema:                               [organization=foobar,version=v1]                               
+
+vlans:                                                                                               
+  a:                   x                                                                             
+
+asns:                                                                                                
+  65000:               foo-bar                                                                        # Corporate network
+
+cidrs:                                                                                               
+  10.0.0.0/8:                                                                                        
+    10.22.0.0/16:      office         [foo=bar]                                                      
+      10.22.0.1/20:    vpc-partner    [asn=foobar]                                                   
+    10.29.0.0/22:      delivery       [account=foobar,region=eu-central-1,vpc=runtime-delivery]      
+  192.168.0.0/12:                                                                                     # aws aggregate
+    192.169.0.0/16:    k8s-production [account=foobar-production,region=eu-central-1,shared-vpc=true]
+      192.169.0.0/20:  abc-1          [env=prod,owner=xyz,site=aws,vpc=main-k8s-1]                   
+      192.169.16.0/20: abc-2          [env=prod,owner=xyz,site=aws,vpc=main-k8s-2]                   
+      192.169.32.0/20: abc-3          [env=prod,owner=xyz,site=aws,vpc=main-k8s-3]                   
+      192.169.48.0/20: abc-4          [env=prod,owner=xyz,site=aws,vpc=main-k8s-4]                   
+    192.170.0.0/16:    k8s-staging    [account=foobar-staging,region=eu-central-1,shared-vpc=true]   
+      192.170.0.0/20:  def-1          [env=stag,owner=xyz,site=aws,vpc=k8s-stag-1]                   
+      192.170.16.0/20: def-2          [env=stag,owner=xyz,site=aws,vpc=k8s-stag-2]                   
+      192.170.32.0/20: def-3          [env=stag,owner=xyz,site=aws,vpc=k8s-stag-3]                   
+      192.170.48.0/20: def-4          [env=stag,owner=xyz,site=aws,vpc=k8s-stag-4]                   
+      192.170.64.0/20: def-5          [env=stag,owner=xyz,site=aws,vpc=k8s-stag-5]                   
+      192.170.80.0/20: def-6          [env=stag,owner=xyz,site=aws,vpc=k8s-stag-6]                   
