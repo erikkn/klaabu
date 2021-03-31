@@ -18,12 +18,15 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Test & Build Klaabu for Linux
+    - name: Test Klaabu package
+      run: make test
+
+    - name: Build Klaabu for Linux
       run: make GOOS=linux GOARCH=amd64 build
-      
-    - name: Test & Build Klaabu for MacOS
+
+    - name: Build Klaabu for MacOS
       run: make GOOS=darwin GOARCH=amd64 build
-      
+
     - name: Publish the Klaabu binary
       uses: softprops/action-gh-release@v1
       if: github.ref == 'refs/heads/master'
@@ -32,5 +35,5 @@ jobs:
           klaabu-linux-amd64
           klaabu-darwin-amd64
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+        GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN}}
+
