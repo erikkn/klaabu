@@ -1,9 +1,9 @@
 NAME := klaabu
 
 BUILD  := ${CURDIR}/build
-BIN    := ${BUILD}/bin/${NAME}
+BIN    := ${BUILD}/bin
 
-.PHONY: clean tidy compile test run
+.PHONY: clean tidy compile shasum test run
 .DEFAULT_GOAL := build
 
 clean:
@@ -21,17 +21,19 @@ vendor:
 compile:
 ifdef GOOS
 ifdef GOARCH
-	env
-	go build -mod=readonly -o ${BIN}-$(GOOS)-$(GOARCH) cli/*.go
+	go build -mod=readonly -o ${BIN}/${NAME}-$(GOOS)-$(GOARCH) cli/*.go
 endif
 else
-	go build -mod=readonly -o ${BIN} cli/*.go
+	go build -mod=readonly -o ${BIN}/${NAME} cli/*.go
 endif
+
+shasum:
+	cd ${BIN} ; for binary in ./* ; do sha512sum $$binary > ${BUILD}/$$binary.sha512 ; done
 
 test:
 	go test -v ./...
 
-build: tidy fmt vendor compile
+build: tidy fmt vendor compile shasum
 
 run: build
 	${BIN}

@@ -31,9 +31,11 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: github.ref == 'refs/heads/master'
       with:
+        tag_name: v0.1.${{ github.run_number }}
         files: |
-          klaabu-linux-amd64
-          klaabu-darwin-amd64
+          ./build/bin/klaabu-linux-amd64
+          ./build/bin/klaabu-darwin-amd64
+          ./build/klaabu-linux-amd64.sha512
+          ./build/klaabu-darwin-amd64.sha512
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN}}
-
