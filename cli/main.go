@@ -13,6 +13,7 @@ var commands = map[string]func(){
 	"init":             initCommand,
 	"space":            spaceCommand,
 	"validate":         validateCommand,
+	"version":          versionCommand,
 }
 
 func helpCommand(c string) {
