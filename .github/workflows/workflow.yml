@@ -10,6 +10,8 @@ jobs:
 
   build_and_publish:
     runs-on: ubuntu-latest
+    env:
+      version: v0.1.${{ github.run_number }}
     steps:
     - uses: actions/checkout@v2
 
@@ -22,16 +24,16 @@ jobs:
       run: make test
 
     - name: Build Klaabu for Linux
-      run: make GOOS=linux GOARCH=amd64 build
+      run: make GOOS=linux GOARCH=amd64 VERSION=${{ env.version }} build
 
     - name: Build Klaabu for MacOS
-      run: make GOOS=darwin GOARCH=amd64 build
+      run: make GOOS=darwin GOARCH=amd64 VERSION=${{ env.version }} build
 
     - name: Publish the Klaabu binary
       uses: softprops/action-gh-release@v1
       if: github.ref == 'refs/heads/master'
       with:
-        tag_name: v0.1.${{ github.run_number }}
+        tag_name: ${{ env.version }}
         files: |
           ./build/bin/klaabu-linux-amd64
           ./build/bin/klaabu-darwin-amd64
