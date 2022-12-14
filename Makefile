@@ -3,9 +3,12 @@ NAME := klaabu
 BUILD  := ${CURDIR}/build
 BIN    := ${BUILD}/bin
 VERSION := dev
+UNAME_S := $(shell uname -s)
 
 .PHONY: clean tidy compile shasum test run
 .DEFAULT_GOAL := build
+
+
 
 clean:
 	rm -rf ${BUILD}
@@ -29,7 +32,13 @@ else
 endif
 
 shasum:
-	cd ${BIN} ; for binary in ./* ; do sha512sum $$binary > ${BUILD}/$$binary.sha512 ; done
+ifeq ($(UNAME_S),Linux)
+		cd ${BIN} ; for binary in ./* ; do sha512sum $$binary > ${BUILD}/$$binary.sha512 ; done
+endif
+ifeq ($(UNAME_S),Darwin)
+		cd ${BIN} ; for binary in ./* ; do shasum -a 512 $$binary > ${BUILD}/$$binary.sha512 ; done
+endif
+	
 
 test:
 	go test -v ./...
