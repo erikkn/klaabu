@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/erikkn/klaabu/klaabu"
+	"github.com/transferwise/klaabu/klaabu"
 )
 
 func validateCommand() {

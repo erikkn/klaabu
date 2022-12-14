@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/erikkn/klaabu/klaabu"
+	"github.com/transferwise/klaabu/klaabu"
 )
 
 func initCommand() {

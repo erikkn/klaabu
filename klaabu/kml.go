@@ -3,9 +3,10 @@ package klaabu
 import (
 	"errors"
 	"fmt"
-	"github.com/erikkn/klaabu/klaabu/kml"
 	"io"
 	"os"
+
+	"github.com/transferwise/klaabu/klaabu/kml"
 )
 
 const (

@@ -2,8 +2,9 @@ package klaabu
 
 import (
 	"fmt"
-	"github.com/erikkn/klaabu/klaabu/iputil"
 	"net"
+
+	"github.com/transferwise/klaabu/klaabu/iputil"
 )
 
 // MinMaxIP lalala.

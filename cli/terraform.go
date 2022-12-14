@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/erikkn/klaabu/klaabu"
-	"github.com/erikkn/klaabu/klaabu/terraform"
+	"github.com/transferwise/klaabu/klaabu"
+	"github.com/transferwise/klaabu/klaabu/terraform"
 )
 
 func exportTerraformCommand() {

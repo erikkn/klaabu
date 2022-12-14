@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/erikkn/klaabu/klaabu"
+	"github.com/transferwise/klaabu/klaabu"
 )
 
 // The purpose of the 'find' command is more to 'explore' the schema and searching for something in a broad way. 'GET', however, is used if you already know what you need to lookup and do a specific search.

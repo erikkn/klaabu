@@ -1,3 +1,3 @@
-module github.com/erikkn/klaabu
+module github.com/transferwise/klaabu
 
 go 1.15

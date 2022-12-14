@@ -3,7 +3,7 @@ package terraform
 import (
 	"encoding/json"
 
-	"github.com/erikkn/klaabu/klaabu"
+	"github.com/transferwise/klaabu/klaabu"
 )
 
 type module struct {

@@ -2,9 +2,10 @@ package main
 
 import (
 	"flag"
-	"github.com/erikkn/klaabu/klaabu"
 	"log"
 	"os"
+
+	"github.com/transferwise/klaabu/klaabu"
 )
 
 func getCommand() {

@@ -2,11 +2,12 @@ package main
 
 import (
 	"flag"
-	"github.com/erikkn/klaabu/klaabu"
-	"github.com/erikkn/klaabu/klaabu/iputil"
 	"log"
 	"os"
 	"sort"
+
+	"github.com/transferwise/klaabu/klaabu"
+	"github.com/transferwise/klaabu/klaabu/iputil"
 )
 
 func spaceCommand() {

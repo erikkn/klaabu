@@ -1,10 +1,11 @@
 package kml
 
 import (
-	"github.com/erikkn/klaabu/klaabu/iputil"
 	"io"
 	"sort"
 	"strings"
+
+	"github.com/transferwise/klaabu/klaabu/iputil"
 )
 
 type ColumnWidths struct {

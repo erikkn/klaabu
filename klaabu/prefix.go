@@ -2,8 +2,9 @@ package klaabu
 
 import (
 	"fmt"
-	"github.com/erikkn/klaabu/klaabu/iputil"
 	"sort"
+
+	"github.com/transferwise/klaabu/klaabu/iputil"
 )
 
 // Cidr represents a single CIDR notation.
