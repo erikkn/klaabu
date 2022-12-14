@@ -2,12 +2,6 @@
 
 Klaabu is an IP network documenting tool, usually referred to as an IPAM (IP Address Management) tool, with a very strong focus on simplicity, convenience, and operating in Cloud-Native environments.
 
-## Preface
-
-A big THANKS to **Taras Burko**, for mentoring me, and for all your time & effort in writing this program with me.
-
-A big THANKS to **Taavi Tuisk** for mentoring & helping me these past years.
-
 ## Why invent something new?
 
 There are a ton of different IPAM tools available out there, but with Klaabu you don’t have to <i>host</i> and <i>maintain</i> yet another tool. NetBox, for instance, is a great tool, but in case NetBox is your source-of-truth, you will need to have some sort of an SLA, strong observability, DR plan, and more.
@@ -26,13 +20,13 @@ Apart from some other powerful (CLI) functions, Klaabu offers the `export-terraf
 With GO installed:
 
 ```bash
-go get github.com/erikkn/klaabu
+go get github.com/transferwise/klaabu
 ```
 
 Alternatively, you can also import the package directly:
 
 ```bash
-import “github.com/erikkn/klaabu”
+import “github.com/transferwise/klaabu”
 ```
 
 In case you want to build the package yourself
@@ -84,3 +78,10 @@ klaabu find -label vpc=foobar,env=production
 ## Contributing
 
 Check out the [CONTRIBUTING](./CONTRIBUTING.md/) guide if you want to contribute.
+
+
+## Acknowledgements
+
+A big THANKS to **Taras Burko**, for mentoring me, and for all your time & effort in writing this program with me.
+
+A big THANKS to **Taavi Tuisk** for mentoring & helping me these past years.
